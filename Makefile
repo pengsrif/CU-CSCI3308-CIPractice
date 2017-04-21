@@ -13,7 +13,7 @@ PKG_CHECK_LIBS = `pkg-config --libs check`
 
 all: geometry_test
 
-geometry_test: geometry_test.o geometry.o
+geometry_test: geometry_test.o geometry.o 
 	$(CC) $(LFLAGS) $^ $(PKG_CHECK_LIBS) $(PKG_MATH_LIBS) -o $@
 
 geometry_test.o: geometry_test.c geometry.h
@@ -29,3 +29,6 @@ clean:
 	$(RM) *.o
 	$(RM) geometry_test
 	$(RM) *~
+
+test:
+	./geometry_test
